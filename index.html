@@ -33,6 +33,9 @@
       html {
         font-size: 1.1px;
       }
+      body {
+        margin: 0;
+      }
 
       .tg-title {
         font-family: Playfair Display, serif;
@@ -168,7 +171,8 @@
           ><input type="text" v-model="realName" @blur="saveInfo('realName')" />
         </div>
         <div class="mgb-1">
-          <span class="c-label">性别</span><input type="text" v-model="gender" @blur="saveInfo('gender')" />
+          <span class="c-label">性别</span
+          ><input type="text" v-model="gender" @blur="saveInfo('gender')" />
         </div>
         <div class="mgb-1">
           <span class="c-label">手机号码</span
@@ -225,7 +229,7 @@
         el: '#app',
         data() {
           return {
-            clientH: 884,
+            clientH: 844,
             clientW: 390,
             num: '12',
             text1: '',
@@ -335,12 +339,12 @@
           fullSreen() {
             this.ctx.clearRect(0, 0, this.clientW, this.clientH);
             this.drawPicture();
-            const dom = document.getElementById('myCvs');
-            if (dom.requestFullscreen) {
-              dom.requestFullscreen();
-            } else if (dom.webkitRequestFullScreen) {
-              dom.webkitRequestFullScreen();
-            }
+            // const dom = document.getElementById('myCvs');
+            // if (dom.requestFullscreen) {
+            //   dom.requestFullscreen();
+            // } else if (dom.webkitRequestFullScreen) {
+            //   dom.webkitRequestFullScreen();
+            // }
           },
           drawText(str, x, y, font) {
             const ctx = this.ctx;
@@ -401,43 +405,47 @@
                 this.clientW,
                 (2280 / 1080) * this.clientW
               );
-              console.log(this.realName, '--');
-              this.drawArea(
-                [this.realName, this.gender, this.phone].join(' '),
-                'center',
-                243,
-                '600 15px bold'
-              );
-              this.drawArea(this.assignNum, 'center', 598, '600 12px bold');
-              
-              this.drawArea(
-                '三牌楼校区 ' + this.dateStr,
-                'center',
-                656,
-                '600 12px bold'
-              );
-              this.drawArea(this.idNum, 'center', 713, '600 13px bold');
+              this.chunkDraw();
             };
-            img.src = 'test.jpg';
+            img.src = 'test.webp';
+          },
+          chunkDraw() {
+            const ctx = this.ctx;
+
+            this.drawArea(
+              [this.realName, this.gender, this.phone].join(' '),
+              'center',
+              243,
+              '600 15px bold'
+            );
+            this.drawArea(this.assignNum, 'center', 598, '600 12px bold');
+
+            this.drawArea(
+              '三牌楼校区 ' + this.dateStr,
+              'center',
+              656,
+              '600 12px bold'
+            );
+            this.drawArea(this.idNum, 'center', 713, '600 13px bold');
           },
         },
         created() {
           const _date = new Date();
-              this.dateStr = [
-                _date.getFullYear(),
-                ('0' + (_date.getMonth() + 1)).slice(-2),
-                ('0' + _date.getDate()).slice(-2),
-              ].join('-');
-          this.clientH = document.documentElement.clientHeight;
-          this.clientW = document.documentElement.clientWidth;
+          this.dateStr = [
+            _date.getFullYear(),
+            ('0' + (_date.getMonth() + 1)).slice(-2),
+            ('0' + _date.getDate()).slice(-2),
+          ].join('-');
+          // this.clientH = document.documentElement.clientHeight;
+          // this.clientW = document.documentElement.clientWidth;
           let itemArr = ['realName', 'gender', 'phone', 'idNum'];
-          let ds = localStorage.getItem('dateStr')
+          let ds = localStorage.getItem('dateStr');
           if (ds !== this.dateStr) {
-            this.assignNum = this.randNum(12)
+            this.assignNum = this.randNum(12);
           } else {
-            itemArr.push('assignNum')
+            itemArr.push('assignNum');
           }
-          localStorage.setItem('dateStr', this.dateStr)
+          localStorage.setItem('dateStr', this.dateStr);
           itemArr.forEach((e) => {
             const tmp = localStorage.getItem(e);
             if (tmp) {
@@ -470,7 +478,7 @@
           // })
           const ctx = document.getElementById('myCvs').getContext('2d');
           this.ctx = ctx;
-          // this.drawPicture();
+          this.drawPicture();
         },
       });
 
