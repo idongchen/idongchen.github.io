@@ -378,6 +378,7 @@
           return arr.join('');
         },
         drawPicture() {
+          document.title = '预约成功'
           const ctx = this.ctx;
           const img = new Image();
           img.onload = () => {
@@ -394,7 +395,6 @@
         },
         chunkDraw() {
           const ctx = this.ctx;
-
           this.drawArea(
             [this.realName, this.gender, this.phone].join(' '),
             'center',
