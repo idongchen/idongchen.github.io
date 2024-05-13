@@ -1,495 +1,482 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <title>常用网址</title>
-    <meta name="description" content="常用网址" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui"
-    />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- for ios 7 style, multi-resolution icon of 152x152 -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta
-      name="apple-mobile-web-app-status-barstyle"
-      content="black-translucent"
-    />
-    <meta name="apple-mobile-web-app-title" content="Flatkit" />
-    <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
-    <meta name="mobile-web-app-capable" content="yes" />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="https://dashboard.cpolar.com/static/img/favicon.ico"
-    />
 
-    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
-    <script src="./vue.min.js"></script>
-    <!-- <script src="https://cdn.bootcss.com/axios/0.18.1/axios.min.js"></script> -->
-    <script src="./axios.min.js"></script>
-    <style type="text/css">
-      html {
-        font-size: 1.1px;
-      }
-      body {
-        margin: 0;
-      }
+<head>
+  <meta charset="utf-8" />
+  <title>常用网址</title>
+  <meta name="description" content="常用网址" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Flatkit" />
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <link rel="icon" type="image/x-icon" href="https://dashboard.cpolar.com/static/img/favicon.ico" />
 
-      .tg-title {
-        font-family: Playfair Display, serif;
-      }
+  <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+  <script src="./vue.min.js"></script>
+  <!-- <script src="https://cdn.bootcss.com/axios/0.18.1/axios.min.js"></script> -->
+  <script src="./axios.min.js"></script>
+  <style type="text/css">
+    html {
+      font-size: 1.1px;
+    }
 
-      .tgn-c {
-        text-align: center;
-      }
+    body {
+      margin: 0;
+    }
 
-      .test-link {
-        display: block;
-        flex: 1;
-        /*border-bottom: 1px solid currentColor;*/
-      }
+    .tg-title {
+      font-family: Playfair Display, serif;
+    }
 
+    .tgn-c {
+      text-align: center;
+    }
+
+    .test-link {
+      display: block;
+      flex: 1;
+      /*border-bottom: 1px solid currentColor;*/
+    }
+
+    .main {
+      width: 1600px;
+      max-width: 92vw;
+      font-size: 12rem;
+      margin: 0 auto;
+    }
+
+    .items {
+      border: 1px solid #d9d9d9;
+      padding: 0;
+      font-size: 18rem;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .item {
+      background: #efefff;
+      padding: 0 10px;
+      line-height: 2.2;
+      display: flex;
+      margin-right: 0.8em;
+      margin-bottom: 0.6em;
+    }
+
+    .item:nth-of-type(even) {
+      /* background: #efef; */
+      background: #def0d8;
+    }
+
+    .main .item:hover {
+      background: #ccff66;
+    }
+
+    a:hover {
+      cursor: pointer;
+    }
+
+    .flex {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .flex-1 {
+      flex: 1;
+    }
+
+    .item-right {
+      width: 360px;
+      margin: 1em;
+    }
+
+    .paper {
+      margin: 0;
+    }
+
+    .paper dl,
+    dd {
+      margin: 0;
+    }
+
+    .paper .content {
+      min-height: 50px;
+      padding-left: 1.8em;
+      padding-right: 0.8em;
+      font-size: 15rem;
+    }
+
+    .c-label {
+      display: inline-block;
+      width: 110px;
+    }
+
+    .mgb-1 {
+      margin-bottom: 7px;
+    }
+
+    @media (max-width: 600px) {
       .main {
-        width: 1600px;
-        max-width: 92vw;
-        font-size: 12rem;
-        margin: 0 auto;
+        width: 100%;
       }
+    }
+  </style>
+</head>
 
-      .items {
-        border: 1px solid #d9d9d9;
-        padding: 0;
-        font-size: 18rem;
-        display: flex;
-        flex-wrap: wrap;
-      }
-
-      .item {
-        background: #efefff;
-        padding: 0 10px;
-        line-height: 2.2;
-        display: flex;
-        margin-right: 0.8em;
-        margin-bottom: 0.6em;
-      }
-
-      .item:nth-of-type(even) {
-        /* background: #efef; */
-        background: #def0d8;
-      }
-
-      .main .item:hover {
-        background: #ccff66;
-      }
-
-      a:hover {
-        cursor: pointer;
-      }
-
-      .flex {
-        display: flex;
-        flex-wrap: wrap;
-      }
-
-      .flex-1 {
-        flex: 1;
-      }
-
-      .item-right {
-        width: 360px;
-        margin: 1em;
-      }
-
-      .paper {
-        margin: 0;
-      }
-
-      .paper dl,
-      dd {
-        margin: 0;
-      }
-
-      .paper .content {
-        min-height: 50px;
-        padding-left: 1.8em;
-        padding-right: 0.8em;
-        font-size: 15rem;
-      }
-      .c-label {
-        display: inline-block;
-        width: 110px;
-      }
-      .mgb-1 {
-        margin-bottom: 7px;
-      }
-      @media (max-width: 600px) {
-        .main {
-          width: 100%;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <button onclick="kCount(7)">开始</button>
-    <div id="app">
-      <div class="main">
-        <h1 class="tgn-c tg-title">常用网址 - 06书签</h1>
-        <div class="flex">
-          <ul class="items flex-1">
-            <li class="item" v-for="(el,i) in markDev" :key="'homeL4' + i">
-              <a class="test-link" @click="openUrl(el.url)"
-                >{{i+1}}.{{el.name}}</a
-              >
-            </li>
-          </ul>
-          <div class="item-right">
-            <dl class="paper a2" style="left: 454px; top: 204px; z-index: 101">
-              <dt class="title"></dt>
-              <dd class="content">
-                <div class="text-title">{{encourage}}</div>
-              </dd>
-              <dd class="bottom"><span class="time"></span></dd>
-            </dl>
-          </div>
-        </div>
-
-        <div class="flex">
-          <input style="width: 100%" type="text" v-model="num" />
-          <div class="flex-1">
-            <p><input type="text" v-model="text1" /></p>
-            <button @click="text1Fn">点击</button>
-          </div>
+<body>
+  <div id="app">
+    <div class="main">
+      <h1 class="tgn-c tg-title">常用网址 - 06书签</h1>
+      <div class="flex">
+        <ul class="items flex-1">
+          <li class="item" v-for="(el,i) in markDev" :key="'homeL4' + i">
+            <a class="test-link" @click="openUrl(el.url)">{{i+1}}.{{el.name}}</a>
+          </li>
+        </ul>
+        <div class="item-right">
+          <dl class="paper a2" style="left: 454px; top: 204px; z-index: 101">
+            <dt class="title"></dt>
+            <dd class="content">
+              <div class="text-title">{{encourage}}</div>
+            </dd>
+            <dd class="bottom"><span class="time"></span></dd>
+          </dl>
         </div>
       </div>
 
-      <div style="font-size: 14px">
-        <div class="mgb-1">
-          <span class="c-label">姓名</span
-          ><input type="text" v-model="realName" @blur="saveInfo('realName')" />
+      <div class="flex">
+        <input style="width: 100%" type="text" v-model="num" />
+        <div class="flex-1">
+          <p><input type="text" v-model="text1" /></p>
+          <button @click="text1Fn">点击</button>
         </div>
-        <div class="mgb-1">
-          <span class="c-label">性别</span
-          ><input type="text" v-model="gender" @blur="saveInfo('gender')" />
-        </div>
-        <div class="mgb-1">
-          <span class="c-label">手机号码</span
-          ><input type="text" v-model="phone" @blur="saveInfo('phone')" />
-        </div>
-        <div class="mgb-1">
-          <span class="c-label">识别码</span
-          ><input
-            type="text"
-            v-model="assignNum"
-            @blur="saveInfo('assignNum')"
-          />
-        </div>
-        <div>
-          <span class="c-label">身份信息</span
-          ><input type="text" v-model="idNum" @blur="saveInfo('idNum')" />
-        </div>
-        <button @click="fullSreen">full</button>
-        <canvas id="myCvs" :width="clientW" :height="clientH"></canvas>
       </div>
     </div>
-    <script>
-      // "use strict";
+
+    <div style="font-size: 14px">
+      <div class="mgb-1">
+        <span class="c-label">姓名</span><input type="text" v-model="realName" @blur="saveInfo('realName')" />
+      </div>
+      <div class="mgb-1">
+        <span class="c-label">性别</span><input type="text" v-model="gender" @blur="saveInfo('gender')" />
+      </div>
+      <div class="mgb-1">
+        <span class="c-label">手机号码</span><input type="text" v-model="phone" @blur="saveInfo('phone')" />
+      </div>
+      <div class="mgb-1">
+        <span class="c-label">识别码</span><input type="text" v-model="assignNum" @blur="saveInfo('assignNum')" />
+      </div>
+      <div>
+        <span class="c-label">身份信息</span><input type="text" v-model="idNum" @blur="saveInfo('idNum')" />
+      </div>
+      <button @click="fullSreen">full</button>
+      <canvas id="myCvs" :width="clientW" :height="clientH"></canvas>
+    </div>
+  </div>
+  <script>
+    // "use strict";
+    (function () {
       (function () {
-        (function () {
-          var privateAge = 10;
+        var privateAge = 10;
 
-          function privateFn() {
-            console.log('私有方法');
-          }
-          MyObj = function () {};
-          // 特权方法
-          MyObj.prototype.publicMethod = function () {
-            privateAge++;
-            return privateFn();
-          };
-          // 特权方法
-          MyObj.prototype.getAge = function () {
-            console.log(privateAge);
-            return privateAge;
-          };
-        })();
-        var test = new MyObj();
-        console.log(test);
-        test.publicMethod();
-        console.log(test.getAge());
-      })();
-      const myTest = (a) => console.log(isObj(a));
-      const isObj = (o) => Object.prototype.toString.call(o);
-      myTest(function () {});
-    </script>
-    <script type="text/javascript">
-      var app = new Vue({
-        el: '#app',
-        data() {
-          return {
-            clientH: 844,
-            clientW: 390,
-            num: '12',
-            text1: '',
-            text2: '',
-            api: 'http://api.iuuzu.com:9007',
-            encourage: '加油💪💪💪',
-            markDev: [
-              // {
-              //   url: "https://unimgmt.test.bshg.com.cn/#/dTc/weChatMall/integralShopList",
-              //   name: "bsh后管 - 测试环境 商品列表",
-              // },
-              // {
-              //   url: "http://strategydata.cn/gitlab/",
-              //   name: "gitlab",
-              // },
-              // {
-              //   url: "http://strategydata.cn:8004/",
-              //   name: "yapi",
-              // },
-              // 'https://uniapp.dcloud.net.cn/',
-              // {
-              //   url: "https://mail.saas.huaweicloud.com/mail/",
-              //   name: "企业邮箱",
-              // },
-              // {
-              //   url: "https://mp.weixin.qq.com/",
-              //   name: "微信小程序后台",
-              // },
-              // {
-              //   url: "https://lanhuapp.com/",
-              //   name: "蓝湖",
-              // },
-              {
-                url: 'https://zsxq.com/',
-                name: '知识星球',
-              },
-              {
-                url: 'https://time.geekbang.org/',
-                name: '极客时间',
-              },
-              // {
-              //   url: "https://strategydata.feishu.cn/docx/QYJId7izYo4IItxZY80cpNC2nkh",
-              //   name: "飞书-云文档-main",
-              // },
-              {
-                url: 'https://docs.qq.com/doc/DUEJ3elZKa2daWmhL',
-                name: '腾讯-云文档-main',
-              },
-              { url: './test.html', name: 'test' },
-              // {
-              //   url: "https://strategydata.feishu.cn/docx/O3zUdTe0AohOUvxKYG4cJMEzndm",
-              //   name: "飞书-需求列表汇总",
-              // },
-              // {
-              //   url: "https://strategydata.feishu.cn/mindnotes/G8lobwUDfmSyInnTryIc7DQPn2b",
-              //   name: "飞书-分支占用情况",
-              // },
-              // {url: "https://www.dogedoge.com/", name: "搜索"},
-            ],
-            ctx: null,
-            realName: '',
-            gender: '',
-            phone: '',
-            assignNum: '',
-            idNum: '',
-            dateStr: '',
-          };
-        },
-        methods: {
-          saveInfo(key) {
-            localStorage.setItem(key, this[key]);
-          },
-          openUrl(url) {
-            // a标签的target属性值
-            // _blank _self _parent _top
-            // 打开页面
-            window.open(url, '_blank');
-            // location.href = url;
-            // location.replace(url);
-            // location.assign(url);
-          },
-          text1Fn() {
-            let num = Number(this.num);
-            let res = [];
-            let resVal = [];
-            let splitStr = ' ';
-            this.text1 = this.text1.replace(/，/g, ',');
-            if (this.text1.includes(',')) {
-              splitStr = ',';
-            }
-            const dict = JSON.parse(localStorage.getItem('dict1'));
-            const leng = Object.values(dict).length;
-            res = this.text1
-              .trim()
-              .split(splitStr)
-              .filter((e) => e)
-              .map((k) => dict[k]);
-            for (let cur = 1; cur < res.length; cur = cur + 2) {
-              let tmp = Number(res[cur]);
-              let tmp2 = Number(res[cur - 1]);
-              resVal.push((tmp2 - 1) * leng + tmp);
-            }
-            resVal = resVal.map((e) => (e % num > 0 ? e % num : num));
-            console.log('resVal is: ' + resVal.toString());
-            alert(resVal);
-          },
-          fullSreen() {
-            this.ctx.clearRect(0, 0, this.clientW, this.clientH);
-            this.drawPicture();
-            // const dom = document.getElementById('myCvs');
-            // if (dom.requestFullscreen) {
-            //   dom.requestFullscreen();
-            // } else if (dom.webkitRequestFullScreen) {
-            //   dom.webkitRequestFullScreen();
-            // }
-          },
-          drawText(str, x, y, font) {
-            const ctx = this.ctx;
-            ctx.textBaseLine = 'middle';
-            ctx.font = font || '600 16px bold';
-            ctx.fillText(str, x || 0, y || 0);
-          },
-          drawArea(str, x, y, font) {
-            ctx = this.ctx;
-            ctx.textBaseLine = 'middle';
-            const fillStyle = ctx.fillStyle;
-            ctx.fillStyle = '#FFFFFF';
-            const { fontBoundingBoxAscent, width } = this.measureText(
-              str,
-              font
-            );
-            const addNum = fontBoundingBoxAscent * 0.08;
-            if (x == 'center') {
-              x = this.clientW / 2 - width / 2;
-            }
-            // ctx.fillRect(
-            //   x - addNum / 2,
-            //   y - addNum / 2,
-            //   width + addNum,
-            //   fontBoundingBoxAscent + addNum
-            // );
-            ctx.fillRect(
-              x - addNum / 2 - 20,
-              y - addNum / 2,
-              width + addNum + 40,
-              fontBoundingBoxAscent + addNum
-            );
-            ctx.fillStyle = fillStyle;
-            this.drawText(str, x, y + fontBoundingBoxAscent * 0.85, font);
-          },
-          measureText(str, font) {
-            this.ctx.font = font || '600 16px bold';
-            return this.ctx.measureText(str);
-          },
-          randNum(num) {
-            let arr = [];
-            while (arr.length < num) {
-              const tmp = Math.round(Math.random() * 8 + 1);
-              if (!/0|3/.test(tmp)) {
-                arr.push(tmp);
-              }
-            }
-            return arr.join('');
-          },
-          drawPicture() {
-            const ctx = this.ctx;
-            const img = new Image();
-            img.onload = () => {
-              ctx.drawImage(
-                img,
-                0,
-                0,
-                this.clientW,
-                (2280 / 1080) * this.clientW
-              );
-              this.chunkDraw();
-            };
-            img.src = 'test.webp';
-          },
-          chunkDraw() {
-            const ctx = this.ctx;
-
-            this.drawArea(
-              [this.realName, this.gender, this.phone].join(' '),
-              'center',
-              243,
-              '600 15px bold'
-            );
-            this.drawArea(this.assignNum, 'center', 598, '600 12px bold');
-
-            this.drawArea(
-              '三牌楼校区 ' + this.dateStr,
-              'center',
-              656,
-              '600 12px bold'
-            );
-            this.drawArea(this.idNum, 'center', 713, '600 13px bold');
-          },
-        },
-        created() {
-          const _date = new Date();
-          this.dateStr = [
-            _date.getFullYear(),
-            ('0' + (_date.getMonth() + 1)).slice(-2),
-            ('0' + _date.getDate()).slice(-2),
-          ].join('-');
-          // this.clientH = document.documentElement.clientHeight;
-          // this.clientW = document.documentElement.clientWidth;
-          let itemArr = ['realName', 'gender', 'phone', 'idNum'];
-          let ds = localStorage.getItem('dateStr');
-          if (ds !== this.dateStr) {
-            this.assignNum = this.randNum(12);
-          } else {
-            itemArr.push('assignNum');
-          }
-          localStorage.setItem('dateStr', this.dateStr);
-          itemArr.forEach((e) => {
-            const tmp = localStorage.getItem(e);
-            if (tmp) {
-              this[e] = tmp;
-            }
-          });
-          !this.assignNum && (this.assignNum = this.randNum(12));
-        },
-        mounted() {
-          this.markDev = this.markDev.map((e) => {
-            return typeof e == 'string' ? { url: e, name: e } : e;
-          });
-          // this.urls.forEach(async (e) => {
-          //   await setTimeout(() => {
-          //     window.open(e);
-          //   }, 500);
-          // });
-          // axios.defaults.withCredentials = true; // 若跨域请求需要带 cookie 身份识别
-          // axios.defaults.headers.get['Access-Control-Allow-Origin'] = 'include';
-          // 响应类型
-          // axios.get(this.api + '/proxy/get').then(res => {
-          //   if (res.data.code === 'success') {
-          //     this.encourage = res.data.data;
-          //   }
-          // })
-          // axios.get("http://localhost:8080/username", "fdsf").then(res => {
-          //   console.log(res, 'res');
-          // }).catch(err => {
-          //   console.log(err, 'err')
-          // })
-          const ctx = document.getElementById('myCvs').getContext('2d');
-          this.ctx = ctx;
-          this.drawPicture();
-        },
-      });
-
-      function rnd(max, min) {
-        min = min || 1;
-        let c = (v = Math.round(Math.random() * (max - 1) + min));
-        for (; c > 0; c--) {
-          v = Math.round(Math.random() * (max - 1) + min);
+        function privateFn() {
+          console.log('私有方法');
         }
-        return v;
+        MyObj = function () { };
+        // 特权方法
+        MyObj.prototype.publicMethod = function () {
+          privateAge++;
+          return privateFn();
+        };
+        // 特权方法
+        MyObj.prototype.getAge = function () {
+          console.log(privateAge);
+          return privateAge;
+        };
+      })();
+      var test = new MyObj();
+      console.log(test);
+      test.publicMethod();
+      console.log(test.getAge());
+    })();
+    const myTest = (a) => console.log(isObj(a));
+    const isObj = (o) => Object.prototype.toString.call(o);
+    myTest(function () { });
+  </script>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data() {
+        return {
+          clientW: 1080,
+          clientH: 2280,
+          num: '12',
+          text1: '',
+          text2: '',
+          api: 'http://api.iuuzu.com:9007',
+          encourage: '加油💪💪💪',
+          markDev: [
+            // {
+            //   url: "https://unimgmt.test.bshg.com.cn/#/dTc/weChatMall/integralShopList",
+            //   name: "bsh后管 - 测试环境 商品列表",
+            // },
+            // {
+            //   url: "http://strategydata.cn/gitlab/",
+            //   name: "gitlab",
+            // },
+            // {
+            //   url: "http://strategydata.cn:8004/",
+            //   name: "yapi",
+            // },
+            // 'https://uniapp.dcloud.net.cn/',
+            // {
+            //   url: "https://mail.saas.huaweicloud.com/mail/",
+            //   name: "企业邮箱",
+            // },
+            // {
+            //   url: "https://mp.weixin.qq.com/",
+            //   name: "微信小程序后台",
+            // },
+            // {
+            //   url: "https://lanhuapp.com/",
+            //   name: "蓝湖",
+            // },
+            {
+              url: 'https://zsxq.com/',
+              name: '知识星球',
+            },
+            {
+              url: 'https://time.geekbang.org/',
+              name: '极客时间',
+            },
+            // {
+            //   url: "https://strategydata.feishu.cn/docx/QYJId7izYo4IItxZY80cpNC2nkh",
+            //   name: "飞书-云文档-main",
+            // },
+            {
+              url: 'https://docs.qq.com/doc/DUEJ3elZKa2daWmhL',
+              name: '腾讯-云文档-main',
+            },
+            { url: './test.html', name: 'test' },
+            // {
+            //   url: "https://strategydata.feishu.cn/docx/O3zUdTe0AohOUvxKYG4cJMEzndm",
+            //   name: "飞书-需求列表汇总",
+            // },
+            // {
+            //   url: "https://strategydata.feishu.cn/mindnotes/G8lobwUDfmSyInnTryIc7DQPn2b",
+            //   name: "飞书-分支占用情况",
+            // },
+            // {url: "https://www.dogedoge.com/", name: "搜索"},
+          ],
+          ctx: null,
+          realName: '',
+          gender: '',
+          phone: '',
+          assignNum: '',
+          idNum: '',
+          dateStr: '',
+        };
+      },
+      methods: {
+        saveInfo(key) {
+          localStorage.setItem(key, this[key]);
+        },
+        openUrl(url) {
+          // a标签的target属性值
+          // _blank _self _parent _top
+          // 打开页面
+          window.open(url, '_blank');
+          // location.href = url;
+          // location.replace(url);
+          // location.assign(url);
+        },
+        text1Fn() {
+          let num = Number(this.num);
+          let res = [];
+          let resVal = [];
+          let splitStr = ' ';
+          this.text1 = this.text1.replace(/，/g, ',');
+          if (this.text1.includes(',')) {
+            splitStr = ',';
+          }
+          const dict = JSON.parse(localStorage.getItem('dict1'));
+          const leng = Object.values(dict).length;
+          res = this.text1
+            .trim()
+            .split(splitStr)
+            .filter((e) => e)
+            .map((k) => dict[k]);
+          for (let cur = 1; cur < res.length; cur = cur + 2) {
+            let tmp = Number(res[cur]);
+            let tmp2 = Number(res[cur - 1]);
+            resVal.push((tmp2 - 1) * leng + tmp);
+          }
+          resVal = resVal.map((e) => (e % num > 0 ? e % num : num));
+          console.log('resVal is: ' + resVal.toString());
+          alert(resVal);
+        },
+        fullSreen() {
+          this.ctx.clearRect(0, 0, this.clientW, this.clientH);
+          this.drawPicture();
+          const dom = document.getElementById('myCvs');
+          if (dom.requestFullscreen) {
+            dom.requestFullscreen();
+          } else if (dom.webkitRequestFullScreen) {
+            dom.webkitRequestFullScreen();
+          }
+        },
+        drawText(str, x, y, font) {
+          const ctx = this.ctx;
+          ctx.textBaseLine = 'middle';
+          ctx.font = font || `600 ${53}px bold`;
+          ctx.fillText(str, x || 0, y || 0);
+        },
+        drawArea(str, x, y, font) {
+          ctx = this.ctx;
+          ctx.textBaseLine = 'middle';
+          const fillStyle = ctx.fillStyle;
+          ctx.fillStyle = '#FFFFFF';
+          const { fontBoundingBoxAscent, width } = this.measureText(
+            str,
+            font
+          );
+          const addNum = fontBoundingBoxAscent * 0.08;
+          if (x == 'center') {
+            x = this.clientW / 2 - width / 2;
+          }
+          // ctx.fillRect(
+          //   x - addNum / 2,
+          //   y - addNum / 2,
+          //   width + addNum,
+          //   fontBoundingBoxAscent + addNum
+          // );
+          ctx.fillRect(
+            x - addNum / 2 - 20,
+            y - addNum / 2,
+            width + addNum + 40,
+            fontBoundingBoxAscent + addNum
+          );
+          ctx.fillStyle = fillStyle;
+          this.drawText(str, x, y + fontBoundingBoxAscent * 0.85, font);
+        },
+        measureText(str, font) {
+          this.ctx.font = font || `600 ${53}px bold`;
+          return this.ctx.measureText(str);
+        },
+        randNum(num) {
+          let arr = [];
+          while (arr.length < num) {
+            const tmp = Math.round(Math.random() * 8 + 1);
+            if (!/0|3/.test(tmp)) {
+              arr.push(tmp);
+            }
+          }
+          return arr.join('');
+        },
+        drawPicture() {
+          const ctx = this.ctx;
+          const img = new Image();
+          img.onload = () => {
+            ctx.drawImage(
+              img,
+              0,
+              0,
+              this.clientW,
+              (2280 / 1080) * this.clientW
+            );
+            this.chunkDraw();
+          };
+          img.src = 'test.webp';
+        },
+        chunkDraw() {
+          const ctx = this.ctx;
+
+          this.drawArea(
+            [this.realName, this.gender, this.phone].join(' '),
+            'center',
+            669,
+            `600 40px bold`
+          );
+          this.drawArea(this.assignNum, 'center', this.calcNum(598), `600 ${32}px bold`);
+
+          this.drawArea(
+            '三牌楼校区 ' + this.dateStr,
+            'center',
+            this.calcNum(656),
+            `600 ${32}px bold`
+          );
+          this.drawArea(this.idNum, 'center', this.calcNum(713), `600 ${35}px bold`)
+        },
+        calcNum(num) {
+          return Math.round(1080 / 390 * num)
+        },
+      },
+      created() {
+        const _date = new Date();
+        this.dateStr = [
+          _date.getFullYear(),
+          ('0' + (_date.getMonth() + 1)).slice(-2),
+          ('0' + _date.getDate()).slice(-2),
+        ].join('-');
+        // this.clientH = document.documentElement.clientHeight;
+        // this.clientW = document.documentElement.clientWidth;
+        let itemArr = ['realName', 'gender', 'phone', 'idNum'];
+        let ds = localStorage.getItem('dateStr');
+        if (ds !== this.dateStr) {
+          this.assignNum = this.randNum(12);
+        } else {
+          itemArr.push('assignNum');
+        }
+        localStorage.setItem('dateStr', this.dateStr);
+        itemArr.forEach((e) => {
+          const tmp = localStorage.getItem(e);
+          if (tmp) {
+            this[e] = tmp;
+          }
+        });
+        !this.assignNum && (this.assignNum = this.randNum(12));
+      },
+      mounted() {
+        this.markDev = this.markDev.map((e) => {
+          return typeof e == 'string' ? { url: e, name: e } : e;
+        });
+        // this.urls.forEach(async (e) => {
+        //   await setTimeout(() => {
+        //     window.open(e);
+        //   }, 500);
+        // });
+        // axios.defaults.withCredentials = true; // 若跨域请求需要带 cookie 身份识别
+        // axios.defaults.headers.get['Access-Control-Allow-Origin'] = 'include';
+        // 响应类型
+        // axios.get(this.api + '/proxy/get').then(res => {
+        //   if (res.data.code === 'success') {
+        //     this.encourage = res.data.data;
+        //   }
+        // })
+        // axios.get("http://localhost:8080/username", "fdsf").then(res => {
+        //   console.log(res, 'res');
+        // }).catch(err => {
+        //   console.log(err, 'err')
+        // })
+        const ctx = document.getElementById('myCvs').getContext('2d');
+        this.ctx = ctx;
+        this.drawPicture();
+      },
+    });
+
+    function rnd(max, min) {
+      min = min || 1;
+      let c = (v = Math.round(Math.random() * (max - 1) + min));
+      for (; c > 0; c--) {
+        v = Math.round(Math.random() * (max - 1) + min);
       }
-    </script>
-  </body>
+      return v;
+    }
+  </script>
+</body>
+
 </html>
