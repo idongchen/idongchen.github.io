@@ -409,7 +409,7 @@
             this.calcNum(656),
             `600 ${32}px bold`
           );
-          this.drawArea(this.idNum, 'center', this.calcNum(713), `600 ${35}px bold`)
+          this.drawArea(this.idNum.slice(0,4) + 'XXXXXXXX' + this.idNum.slice(-4), 'center', this.calcNum(713), `600 ${35}px bold`)
         },
         calcNum(num) {
           return Math.round(1080 / 390 * num)
