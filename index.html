@@ -129,7 +129,7 @@
 
 <body>
   <div id="app">
-    <div class="main">
+    <div class="main" v-if="status == 'dc'">
       <h1 class="tgn-c tg-title">常用网址 - 06书签</h1>
       <div class="flex">
         <ul class="items flex-1">
@@ -173,78 +173,23 @@
       <div>
         <span class="c-label">身份信息</span><input type="text" v-model="idNum" @blur="saveInfo('idNum')" />
       </div>
-      <button @click="fullSreen">full</button>
+      <p>
+        <button @click="fullSreen">生成</button>
+      </p>
       <canvas id="myCvs" :width="clientW" :height="clientH"></canvas>
     </div>
   </div>
-  <script>
-    // "use strict";
-    (function () {
-      (function () {
-        var privateAge = 10;
-
-        function privateFn() {
-          console.log('私有方法');
-        }
-        MyObj = function () { };
-        // 特权方法
-        MyObj.prototype.publicMethod = function () {
-          privateAge++;
-          return privateFn();
-        };
-        // 特权方法
-        MyObj.prototype.getAge = function () {
-          console.log(privateAge);
-          return privateAge;
-        };
-      })();
-      var test = new MyObj();
-      console.log(test);
-      test.publicMethod();
-      console.log(test.getAge());
-    })();
-    const myTest = (a) => console.log(isObj(a));
-    const isObj = (o) => Object.prototype.toString.call(o);
-    myTest(function () { });
-  </script>
   <script type="text/javascript">
     var app = new Vue({
       el: '#app',
       data() {
         return {
           clientW: 1080,
-          clientH: 2280,
+          clientH: 2340,
           num: '12',
           text1: '',
-          text2: '',
-          api: 'http://api.iuuzu.com:9007',
           encourage: '加油💪💪💪',
           markDev: [
-            // {
-            //   url: "https://unimgmt.test.bshg.com.cn/#/dTc/weChatMall/integralShopList",
-            //   name: "bsh后管 - 测试环境 商品列表",
-            // },
-            // {
-            //   url: "http://strategydata.cn/gitlab/",
-            //   name: "gitlab",
-            // },
-            // {
-            //   url: "http://strategydata.cn:8004/",
-            //   name: "yapi",
-            // },
-            // 'https://uniapp.dcloud.net.cn/',
-            // {
-            //   url: "https://mail.saas.huaweicloud.com/mail/",
-            //   name: "企业邮箱",
-            // },
-            // {
-            //   url: "https://mp.weixin.qq.com/",
-            //   name: "微信小程序后台",
-            // },
-            // {
-            //   url: "https://lanhuapp.com/",
-            //   name: "蓝湖",
-            // },
             {
               url: 'https://zsxq.com/',
               name: '知识星球',
@@ -253,32 +198,36 @@
               url: 'https://time.geekbang.org/',
               name: '极客时间',
             },
-            // {
-            //   url: "https://strategydata.feishu.cn/docx/QYJId7izYo4IItxZY80cpNC2nkh",
-            //   name: "飞书-云文档-main",
-            // },
             {
               url: 'https://docs.qq.com/doc/DUEJ3elZKa2daWmhL',
               name: '腾讯-云文档-main',
             },
-            { url: './test.html', name: 'test' },
-            // {
-            //   url: "https://strategydata.feishu.cn/docx/O3zUdTe0AohOUvxKYG4cJMEzndm",
-            //   name: "飞书-需求列表汇总",
-            // },
-            // {
-            //   url: "https://strategydata.feishu.cn/mindnotes/G8lobwUDfmSyInnTryIc7DQPn2b",
-            //   name: "飞书-分支占用情况",
-            // },
-            // {url: "https://www.dogedoge.com/", name: "搜索"},
           ],
           ctx: null,
           realName: '',
-          gender: '',
+          gender: '男',
           phone: '',
           assignNum: '',
           idNum: '',
           dateStr: '',
+          status: '',
+          defaultInfo: {
+            img: 'test1.webp',
+            clientW: 1080,
+            clientH: 2280,
+            pos: [
+              669,
+              this.calcNum(598),
+              this.calcNum(656),
+              this.calcNum(713),
+            ],
+            font: [
+              `600 ${40}px bold`,
+              `600 ${32}px bold`,
+              `600 ${32}px bold`,
+              `600 ${35}px bold`,
+            ],
+          },
         };
       },
       methods: {
@@ -367,11 +316,13 @@
           this.ctx.font = font || `600 ${53}px bold`;
           return this.ctx.measureText(str);
         },
-        randNum(num) {
-          let arr = [([1, 2, 4, 5, 6, 7])[rnd(5, 0)]];
-          while (arr.length < num - 1) {
+        generateNum(num) {
+          let dis = (Date.now() - new Date('2024-05-11 11:00:00').getTime()) * (17531 / 24 / 3600 / 1000);
+          dis = Math.floor(dis + 17531 + rnd(987, -321) + rnd(753, -351))
+          let arr = [dis];
+          while (arr.length < 8) {
             const tmp = Math.round(Math.random() * 8 + 1);
-            if (!/0|3/.test(tmp)) {
+            if (rnd(10) < 2) {
               arr.push(tmp);
             }
           }
@@ -387,35 +338,64 @@
               0,
               0,
               this.clientW,
-              (2280 / 1080) * this.clientW
+              (this.clientH / this.clientW) * this.clientW
             );
             this.chunkDraw();
           };
-          img.src = 'test.webp';
+          img.src = this.defaultInfo.img;
         },
         chunkDraw() {
           const ctx = this.ctx;
           this.drawArea(
             [this.realName, this.gender, this.phone].join(' '),
             'center',
-            669,
-            `600 40px bold`
+            this.defaultInfo.pos[0],
+            this.defaultInfo.font[0]
           );
-          this.drawArea(this.assignNum, 'center', this.calcNum(598), `600 ${32}px bold`);
+          this.drawArea(this.assignNum, 'center', this.defaultInfo.pos[1], this.defaultInfo.font[1]);
 
           this.drawArea(
             '三牌楼校区 ' + this.dateStr,
             'center',
-            this.calcNum(656),
-            `600 ${32}px bold`
+            this.defaultInfo.pos[2],
+            this.defaultInfo.font[2]
           );
-          this.drawArea(this.idNum.slice(0, 4) + 'XXXXXXXX' + this.idNum.slice(-4), 'center', this.calcNum(713), `600 ${35}px bold`)
+          this.drawArea(this.idNum.slice(0, 4) + 'XXXXXXXX' + this.idNum.slice(-4), 'center', this.defaultInfo.pos[3], this.defaultInfo.font[3])
         },
         calcNum(num) {
           return Math.round(1080 / 390 * num)
         },
+        initBooking(name) {
+          this.status = name
+          const cfg = {
+            zc: {
+              img: 'test2.webp',
+              clientW: 1080,
+              clientH: 2340,
+              pos: [
+                650,
+                this.calcNum(586),
+                this.calcNum(641),
+                this.calcNum(696),
+              ],
+              font: [
+                `600 ${38}px bold`,
+                `600 ${34}px bold`,
+                `600 ${32}px bold`,
+                `600 ${35}px bold`,
+              ],
+            }
+          }
+          if (cfg[name]) {
+            this.defaultInfo = cfg[name]
+          }
+          this.clientH = this.defaultInfo.clientH
+          this.clientW = this.defaultInfo.clientW
+        },
       },
       created() {
+        let urlParams = new URLSearchParams((location.search).replace('?', ''))
+        this.initBooking(urlParams.get('n'))
         const _date = new Date();
         this.dateStr = [
           _date.getFullYear(),
@@ -427,7 +407,7 @@
         let itemArr = ['realName', 'gender', 'phone', 'idNum'];
         let ds = localStorage.getItem('dateStr');
         if (ds !== this.dateStr) {
-          this.assignNum = this.randNum(12);
+          this.assignNum = this.generateNum(12);
         } else {
           itemArr.push('assignNum');
         }
@@ -438,31 +418,13 @@
             this[e] = tmp;
           }
         });
-        !this.assignNum && (this.assignNum = this.randNum(12));
+        !this.assignNum && (this.assignNum = this.generateNum(12));
         localStorage.setItem('assignNum', this.assignNum)
       },
       mounted() {
         this.markDev = this.markDev.map((e) => {
           return typeof e == 'string' ? { url: e, name: e } : e;
         });
-        // this.urls.forEach(async (e) => {
-        //   await setTimeout(() => {
-        //     window.open(e);
-        //   }, 500);
-        // });
-        // axios.defaults.withCredentials = true; // 若跨域请求需要带 cookie 身份识别
-        // axios.defaults.headers.get['Access-Control-Allow-Origin'] = 'include';
-        // 响应类型
-        // axios.get(this.api + '/proxy/get').then(res => {
-        //   if (res.data.code === 'success') {
-        //     this.encourage = res.data.data;
-        //   }
-        // })
-        // axios.get("http://localhost:8080/username", "fdsf").then(res => {
-        //   console.log(res, 'res');
-        // }).catch(err => {
-        //   console.log(err, 'err')
-        // })
         const ctx = document.getElementById('myCvs').getContext('2d');
         this.ctx = ctx;
         this.drawPicture();
