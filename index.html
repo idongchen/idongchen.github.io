@@ -119,6 +119,14 @@
       margin-bottom: 7px;
     }
 
+    .ny-img {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
     @media (max-width: 600px) {
       .main {
         width: 100%;
@@ -129,7 +137,7 @@
 
 <body>
   <div id="app">
-    <div class="main" v-if="status == 'dc'">
+    <div class="main" v-if="status == 'dc' && !onlyImg">
       <h1 class="tgn-c tg-title">常用网址 - 06书签</h1>
       <div class="flex">
         <ul class="items flex-1">
@@ -157,7 +165,7 @@
       </div>
     </div>
 
-    <div style="font-size: 14px">
+    <div v-if="!onlyImg" style="font-size: 14px">
       <div class="mgb-1">
         <span class="c-label">姓名</span><input type="text" v-model="realName" @blur="saveInfo('realName')" />
       </div>
@@ -176,8 +184,8 @@
       <p>
         <button @click="fullSreen">生成</button>
       </p>
-      <canvas id="myCvs" :width="clientW" :height="clientH"></canvas>
     </div>
+    <canvas id="myCvs" :width="clientW" :height="clientH"></canvas>
   </div>
   <script type="text/javascript">
     var app = new Vue({
@@ -228,6 +236,8 @@
               `600 ${35}px bold`,
             ],
           },
+          showImage: false,
+          onlyImg: false,
         };
       },
       methods: {
@@ -271,11 +281,19 @@
         fullSreen() {
           this.ctx.clearRect(0, 0, this.clientW, this.clientH);
           this.drawPicture();
-          const dom = document.getElementById('myCvs');
-          if (dom.requestFullscreen) {
-            dom.requestFullscreen();
-          } else if (dom.webkitRequestFullScreen) {
-            dom.webkitRequestFullScreen();
+          const el = document.getElementById('myCvs');
+          var rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullScreen,
+            wscript;
+
+          if (typeof rfs != "undefined" && rfs) {
+            rfs.call(el);
+          } else if (typeof window.ActiveXObject != "undefined") {
+            wscript = new ActiveXObject("WScript.Shell");
+            if (wscript) {
+              wscript.SendKeys("{F11}");
+            }
+          } else {
+            this.onlyImg = true
           }
         },
         drawText(str, x, y, font) {
@@ -317,12 +335,26 @@
           return this.ctx.measureText(str);
         },
         generateNum(num) {
-          let dis = (Date.now() - new Date('2024-05-11 11:00:00').getTime()) * (17531 / 24 / 3600 / 1000);
-          dis = Math.floor(dis + 17531 + rnd(987, -321) + rnd(753, -351))
-          let arr = [dis];
-          while (arr.length < 8) {
+          let arr = [];
+          const _date = new Date()
+          let timeStampStr = Date.now().toString()
+          let first = (_date.getFullYear() + _date.getMonth() + 1 + _date.getDate() + timeStampStr[3] + timeStampStr[4]) % 9;
+          if (first < 1) {
+            first = ([1, 2, 4, 5, 6, 7, 8])[rnd(6)]
+          }
+          arr = [first]
+          arr.push(timeStampStr[5])
+          arr.push(timeStampStr.slice(-7)[0])
+          arr.push(timeStampStr.slice(-4)[0])
+          arr.push(timeStampStr.slice(-5)[0])
+          arr.push(timeStampStr.slice(-6)[0])
+          arr.push(timeStampStr.slice(-1)[0])
+          arr.push(timeStampStr.slice(-2)[0])
+          timeStampStr = Date.now().toString()
+          arr.push(timeStampStr.slice(-rnd(12))[0])
+          while (arr.length < num) {
             const tmp = Math.round(Math.random() * 8 + 1);
-            if (rnd(10) < 2) {
+            if (rnd(9) > 3 && (rnd(100) > 81 || tmp != arr.slice(-1)[0])) {
               arr.push(tmp);
             }
           }
@@ -432,7 +464,7 @@
     });
 
     function rnd(max, min) {
-      min = min || 1;
+      min = min || 0;
       let c = (v = Math.round(Math.random() * (max - 1) + min));
       for (; c > 0; c--) {
         v = Math.round(Math.random() * (max - 1) + min);
